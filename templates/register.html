@@ -1,0 +1,46 @@
+{%load static%}
+{% static "images" as baseUrl %}
+
+<html>
+<head>
+       <title> Sign Up and Login Page </title>
+       <link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
+       <link rel="stylesheet" type="text/css"
+       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+       <h1> Welcome  <h1>
+</head>
+<body>
+
+<div class="col-md-6 login-right">
+         <form action="register" method="post">
+         {% csrf_token %}
+          <div class="form-group">
+            <input type="text" name="first_name" placeholder="First Name"><br>
+          </div>
+          <div class="form-group">
+            <input type="text" name="last_name" placeholder="Last Name"><br>
+             </div>
+          <div class="form-group">
+            <input type="text" name="username" placeholder="Username"><br>
+             </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="email"><br>
+                 </div>
+        <div class="form-group">
+            <input type="password" name="password1" placeholder="Password"><br>
+                         </div>
+        <div class="form-group">
+            <input type="password" name="password2" placeholder="Confirm Password"><br>
+                                 </div>
+         <div class="form-group">
+              <input type="text" name="Eventid" placeholder="event-id "><br>
+               </div>
+               <button type="submit" class="btn btn-primary"> Register </button>
+</form>
+<div>
+        {% for message in messages%}
+        <h3> {{message}}</h3>
+        {% endfor %}
+    </div>
+</div>
+</body>
